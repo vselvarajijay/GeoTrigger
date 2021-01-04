@@ -13,6 +13,9 @@ class LocationManager : CLLocationManager, ObservableObject  {
     
     @Published open var enteredGeoFence : Bool = false
     
+    //TODO: Debug variable
+    @Published open var appOpened : Bool = false
+    
     static let shared = LocationManager()
     
     let notificationCenter = NotificationCenter.shared
@@ -29,6 +32,15 @@ class LocationManager : CLLocationManager, ObservableObject  {
         self.desiredAccuracy = kCLLocationAccuracyBest
         self.startUpdatingLocation()
         self.requestAlwaysAuthorization()
+        self.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        self.distanceFilter = 5
+        
+    }
+    
+    func setHighAccuracy() {
+        self.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        self.distanceFilter = 5
+        self.startUpdatingLocation()
     }
     
 }
@@ -55,6 +67,8 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("entered reion")
+        print("checking debug var didOpenApp")
+        print(self.appOpened)
         self.taskManager?.runTask()
     }
     

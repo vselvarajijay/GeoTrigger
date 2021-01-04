@@ -14,6 +14,8 @@ struct ContentView: View {
     let appConfig = AppConfig.config    
     @ObservedObject var locationManager = LocationManager.shared
     @ObservedObject var notificationCenter = NotificationCenter.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     
     var body: some View {
         
@@ -54,7 +56,14 @@ struct ContentView: View {
                     Text("Notification Status DEFAULT")
             }
             
-        }
+            Button(action: {
+                print("hello")
+                self.appDelegate.scheduleAppRefresh()
+            }) {
+                Text("Click me")
+            }
+            
+        }        
        
     }
 }

@@ -52,7 +52,7 @@ class AppConfig {
                 let country = placemark.country!
                 let region = placemark.administrativeArea!
                 print("--------------------------------------------")
-                print("\(centerLng),\(centerLng)\n\(name),\(region) \(country)")
+                print("\(centerLat),\(centerLng)\n\(name),\(region) \(country)")
                 let geoRegion = MonitoredRegion(identifier: identifier, address: address, centerLat: centerLat, centerLng: centerLng)
                 self.monitoredRegions.append(geoRegion)
                 self.startMonitoring(latitude: centerLat, longitude: centerLng, name: identifier)

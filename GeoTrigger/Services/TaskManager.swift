@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import BackgroundTasks
 import SwiftUI
 
 class TaskManager : NSObject {
         
     @ObservedObject var notificationCenter = NotificationCenter.shared
-        
+
     func runTask() {
+        
         var finished = false
         var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0);
         bgTask = UIApplication.shared.beginBackgroundTask(withName:"background-geo-check-task", expirationHandler: {() -> Void in
@@ -28,12 +30,22 @@ class TaskManager : NSObject {
         let task_start_time = self.currentTimeMillis()
         while !finished {
             print("Not finished")
+            
+            // TODO: Test
+            if LocationManager.shared.appOpened != true {
+                finished = true
+            }
+            
             let task_run_current_time = self.currentTimeMillis()
             
-            if task_run_current_time - task_start_time > AppConfig.config.longRunningThreadDuration  { //&& ((self.locationManager.enteredGeoFence) == true) {
+            if task_run_current_time - task_start_time > AppConfig.config.longRunningThreadDuration {
                 // Task has run for 10 seconds and is currently inside the geofence
-                print("Looks good user is still in the geofence")
-                notificationCenter.sendNotification(title: "Background Task Completed", body: "Background task ahs completed. Long running.", identifier: "background-task-notification-completed")
+                
+                if LocationManager.shared.enteredGeoFence {
+                    print("Looks good user is still in the geofence")
+                    notificationCenter.sendNotification(title: "Background Task Completed ", body: "Background task ahs completed. Long running.", identifier: "background-task-notification-completed")
+                }
+                
                 finished = true            
             } else {
                 do {

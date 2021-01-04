@@ -10,7 +10,10 @@ import CoreLocation
 
 @main
 struct GeoTriggerApp: App {
-
+    
+    // Adding AppDelegate delegate to GeoTriggerApp
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {                        
             ContentView()
