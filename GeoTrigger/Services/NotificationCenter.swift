@@ -22,7 +22,6 @@ class NotificationCenter : NSObject, ObservableObject {
         self.userNotificationCenter.delegate = self
         self.setPermissions()
     }
-        
     func sendNotification(title: String, body: String, identifier: String) {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title

@@ -57,8 +57,7 @@ struct ContentView: View {
             }
             
             Button(action: {
-                print("hello")
-                self.appDelegate.scheduleAppRefresh()
+                print("hello")                
             }) {
                 Text("Click me")
             }

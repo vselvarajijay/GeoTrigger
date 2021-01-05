@@ -16,7 +16,8 @@ struct GeoTriggerApp: App {
     
     var body: some Scene {
         WindowGroup {                        
-            ContentView()
+            ContentView()                
         }
     }
+
 }
