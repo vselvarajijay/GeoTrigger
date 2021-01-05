@@ -9,10 +9,15 @@ import Foundation
 import BackgroundTasks
 import SwiftUI
 
+
+
+/// <#Description#>
 class TaskManager : NSObject {
         
     @ObservedObject var notificationCenter = NotificationCenter.shared
 
+    
+    /// <#Description#>
     func runTask() {
         
         var finished = false
@@ -30,12 +35,7 @@ class TaskManager : NSObject {
         let task_start_time = self.currentTimeMillis()
         while !finished {
             print("Not finished")
-            
-            // TODO: Test
-            if LocationManager.shared.appOpened != true {
-                finished = true
-            }
-            
+                        
             let task_run_current_time = self.currentTimeMillis()
             
             if task_run_current_time - task_start_time > AppConfig.config.longRunningThreadDuration {
@@ -62,6 +62,9 @@ class TaskManager : NSObject {
         bgTask = UIBackgroundTaskIdentifier.invalid
     }
     
+    
+    /// <#Description#>
+    /// - Returns: <#description#>
     func currentTimeMillis() -> Int64 {
         return Int64(NSDate().timeIntervalSince1970 * 1000)
     }

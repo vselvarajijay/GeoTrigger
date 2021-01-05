@@ -9,13 +9,12 @@ import Foundation
 import CoreLocation
 import UIKit
 
+
+/// <#Description#>
 class LocationManager : CLLocationManager, ObservableObject  {
     
     @Published open var enteredGeoFence : Bool = false
-    
-    //TODO: Debug variable
-    @Published open var appOpened : Bool = false
-    
+        
     static let shared = LocationManager()
     
     var lastDistanceFromHome : Double  = 0
@@ -26,6 +25,9 @@ class LocationManager : CLLocationManager, ObservableObject  {
     var lat : Double?
     var lng : Double?
     
+    
+    
+    /// <#Description#>
     private override init() {        
         super.init()
         self.taskManager = TaskManager()
@@ -39,6 +41,8 @@ class LocationManager : CLLocationManager, ObservableObject  {
         
     }
     
+    
+    /// <#Description#>
     func setHighAccuracy() {
         self.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.distanceFilter = 5
@@ -47,12 +51,24 @@ class LocationManager : CLLocationManager, ObservableObject  {
     
 }
 
+
 extension LocationManager: CLLocationManagerDelegate {
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - region: <#region description#>
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         print ("started to monitor for region")
     }
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - state: <#state description#>
+    ///   - region: <#region description#>
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         print ("did determine state")
         if state == CLRegionState.inside {
@@ -62,21 +78,34 @@ extension LocationManager: CLLocationManagerDelegate {
         }        
     }
 
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - region: <#region description#>
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("exited region")        
-        // self.taskManager?.runTask()
+        print("exited region")
     }
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - region: <#region description#>
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("entered reion")
         print("checking debug var didOpenApp")
-        print(self.appOpened)
         // self.taskManager?.runTask()
         
         print("starting to update locations after entering a geofence")
         self.startUpdatingLocation()
     }
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - status: <#status description#>
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
       print("didChangeAuthorization")
         
@@ -88,6 +117,11 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - locations: <#locations description#>
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.lat = locations[0].coordinate.latitude
         self.lng = locations[0].coordinate.longitude
@@ -117,6 +151,11 @@ extension LocationManager: CLLocationManagerDelegate {
         
     }
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - manager: <#manager description#>
+    ///   - error: <#error description#>
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
       print("LocationManager didFailWithError \(error.localizedDescription)")
     }

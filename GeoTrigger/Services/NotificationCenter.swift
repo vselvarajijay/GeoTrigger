@@ -9,19 +9,28 @@ import Foundation
 import UserNotifications
 import UIKit
 
+
+/// <#Description#>
 class NotificationCenter : NSObject, ObservableObject {
     
     static let shared = NotificationCenter()
-        
+    
     let userNotificationCenter = UNUserNotificationCenter.current()
     var authorizationStatus = UNAuthorizationStatus.notDetermined
     
+    /// initialize Notification Center's singleton instance
     private override init() {
         super .init()
         self.requestNotificationAuthorization()
         self.userNotificationCenter.delegate = self
         self.setPermissions()
     }
+            
+    /// Send a local notification to the user's device
+    /// - Parameters:
+    ///   - title: Title of the notification message
+    ///   - body: Body content of the notification
+    ///   - identifier: Identifier for the notification
     func sendNotification(title: String, body: String, identifier: String) {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title
@@ -38,7 +47,7 @@ class NotificationCenter : NSObject, ObservableObject {
         }
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
-        let request = UNNotificationRequest(identifier: identifier,     // "testNotification",
+        let request = UNNotificationRequest(identifier: identifier,
                                             content: notificationContent,
                                             trigger: trigger)
         
@@ -50,6 +59,8 @@ class NotificationCenter : NSObject, ObservableObject {
         print("notification sent")
     }
     
+    
+    /// Request authorization for notifications
     func requestNotificationAuthorization() {
         let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
         self.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
@@ -60,6 +71,7 @@ class NotificationCenter : NSObject, ObservableObject {
         }
     }
     
+    // Set notification permissions
     func setPermissions() {
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { (settings) in
@@ -69,12 +81,25 @@ class NotificationCenter : NSObject, ObservableObject {
 
 }
 
+
 extension NotificationCenter : UNUserNotificationCenterDelegate {
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - center: <#center description#>
+    ///   - response: <#response description#>
+    ///   - completionHandler: <#completionHandler description#>
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
 
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - center: <#center description#>
+    ///   - notification: <#notification description#>
+    ///   - completionHandler: <#completionHandler description#>
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
