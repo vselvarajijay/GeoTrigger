@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/vselvarajijay/GeoTrigger.svg?branch=main)](https://travis-ci.org/vselvarajijay/GeoTrigger)
+
+
 ![Banner](/GeoTrigger/Images/GitHub-Banner.png?raw=true)
 
 
