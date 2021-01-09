@@ -12,9 +12,9 @@ import UIKit
 
 /// <#Description#>
 class LocationManager : CLLocationManager, ObservableObject  {
-    
+
     @Published open var enteredGeoFence : Bool = false
-        
+
     static let shared = LocationManager()
     
     var lastDistanceFromHome : Double  = 0
@@ -23,10 +23,8 @@ class LocationManager : CLLocationManager, ObservableObject  {
     var taskManager : TaskManager?
             
     var lat : Double?
-    var lng : Double?
-    
-    
-    
+    var lng : Double?    
+        
     /// <#Description#>
     private override init() {        
         super.init()
@@ -38,7 +36,6 @@ class LocationManager : CLLocationManager, ObservableObject  {
         self.requestAlwaysAuthorization()
         self.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.distanceFilter = 5
-        
     }
     
     
@@ -48,7 +45,7 @@ class LocationManager : CLLocationManager, ObservableObject  {
         self.distanceFilter = 5
         self.startUpdatingLocation()
     }
-    
+
 }
 
 
@@ -93,12 +90,8 @@ extension LocationManager: CLLocationManagerDelegate {
     ///   - manager: <#manager description#>
     ///   - region: <#region description#>
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("entered reion")
-        print("checking debug var didOpenApp")
-        // self.taskManager?.runTask()
-        
-        print("starting to update locations after entering a geofence")
-        self.startUpdatingLocation()
+        // self.startUpdatingLocation()
+        notificationCenter.sendNotification(title: "Welcome to... ", body: "some reminder", identifier: "background-task-notification-completed")
     }
     
     
@@ -108,13 +101,6 @@ extension LocationManager: CLLocationManagerDelegate {
     ///   - status: <#status description#>
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
       print("didChangeAuthorization")
-        
-        if CLLocationManager.locationServicesEnabled() {
-            print("locationServicesEnabled = True")
-        }
-        else {
-            print("locationServicesEnabled = False")
-        }
     }
     
     
@@ -146,8 +132,6 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         
         self.lastDistanceFromHome = distanceInMeters
-        
-        
         
     }
     

@@ -12,12 +12,7 @@ import BackgroundTasks
 
 /// <#Description#>
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    var locationManager: LocationManager = LocationManager.shared
-    let notificationCenter = NotificationCenter.shared
-    let operationQueue = OperationQueue()
-   
-    
+        
     /// <#Description#>
     /// - Parameters:
     ///   - application: <#application description#>

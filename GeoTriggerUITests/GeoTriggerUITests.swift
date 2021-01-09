@@ -6,7 +6,6 @@
 //
 
 import XCTest
-
 class GeoTriggerUITests: XCTestCase {
 
     override func setUpWithError() throws {
