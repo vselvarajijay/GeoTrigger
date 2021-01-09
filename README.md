@@ -1,8 +1,6 @@
-[![Build Status](https://travis-ci.org/vselvarajijay/GeoTrigger.svg?branch=main)](https://travis-ci.org/vselvarajijay/GeoTrigger)
-
-
 ![Banner](/GeoTrigger/Images/GitHub-Banner.png?raw=true)
 
+[![Build Status](https://travis-ci.org/vselvarajijay/GeoTrigger.svg?branch=main)](https://travis-ci.org/vselvarajijay/GeoTrigger)
 
 This is a sample project to demonstrate how to trigger a push notification based on a GeoFence on enter or on exit event on iOS devices. It is intended for developers new to working with GeoFencing on iOS. In addition to basic concepts, this project also demonstrates how to handle Region's that might have arbitruary sizes where setting percise region sizes might not be trival.
 
