@@ -4,4 +4,3 @@ xcode_project: GeoTrigger.xcodeproj
 xcode_scheme: GeoTrigger
 osx_image: xcode12.2
 xcode_destination: platform=iOS Simulator,OS=14.0,name=iPhone 12
-
