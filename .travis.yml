@@ -1,9 +1,6 @@
 language:
   - swift
-osx_image: xcode12.3
-script:
-  - xcodebuild -scheme GeoTrigger -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' build test
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
+xcode_project: GeoTrigger.xcodeproj
+xcode_scheme: GeoTrigger
+xcode_destination: platform=iOS Simulator,OS=14.3,name=iPhone 12
 
