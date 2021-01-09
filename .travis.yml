@@ -1,4 +1,6 @@
 language:
   - swift
-script:
-  - xcodebuild -scheme GeoTrigger -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' build test
+xcode_project: GeoTrigger.xcodeproj
+xcode_scheme: GeoTrigger
+xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone 11
+
