@@ -20,6 +20,8 @@
 		0DB514E1259C4D55008248A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB514E0259C4D55008248A2 /* AppDelegate.swift */; };
 		0DB514EF259C52E7008248A2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB514EE259C52E7008248A2 /* LocationManager.swift */; };
 		0DB514F7259C5406008248A2 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB514F6259C5406008248A2 /* NotificationCenter.swift */; };
+		0DB68C9D25AAF4750075456A /* ChartUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB68C9C25AAF4750075456A /* ChartUIView.swift */; };
+		0DB68CA225AAFC200075456A /* GeoRegionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB68CA125AAFC200075456A /* GeoRegionCardView.swift */; };
 		0DC72C75259FDC360096A0B8 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC72C74259FDC360096A0B8 /* TaskManager.swift */; };
 		2FEC79228EBD6C020F70F60D /* Pods_GeoTrigger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385AC598B368741CDEEC1541 /* Pods_GeoTrigger.framework */; };
 		500F459523C8445BADBE3939 /* Pods_GeoTrigger_GeoTriggerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05E997E43902A1EF9540035 /* Pods_GeoTrigger_GeoTriggerUITests.framework */; };
@@ -64,6 +66,8 @@
 		0DB514E0259C4D55008248A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DB514EE259C52E7008248A2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0DB514F6259C5406008248A2 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		0DB68C9C25AAF4750075456A /* ChartUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIView.swift; sourceTree = "<group>"; };
+		0DB68CA125AAFC200075456A /* GeoRegionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoRegionCardView.swift; sourceTree = "<group>"; };
 		0DC72C74259FDC360096A0B8 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		385AC598B368741CDEEC1541 /* Pods_GeoTrigger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoTrigger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		563EE1B71E69190301572D85 /* Pods-GeoTrigger-GeoTriggerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoTrigger-GeoTriggerUITests.release.xcconfig"; path = "Target Support Files/Pods-GeoTrigger-GeoTriggerUITests/Pods-GeoTrigger-GeoTriggerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				0DB514B2259C48D9008248A2 /* GeoTriggerApp.swift */,
 				0DB514B4259C48D9008248A2 /* ContentView.swift */,
+				0DB68C9C25AAF4750075456A /* ChartUIView.swift */,
+				0DB68CA125AAFC200075456A /* GeoRegionCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,11 +428,13 @@
 			files = (
 				0DB514EF259C52E7008248A2 /* LocationManager.swift in Sources */,
 				0D488C0125A00E110016D2ED /* AppConfig.swift in Sources */,
+				0DB68CA225AAFC200075456A /* GeoRegionCardView.swift in Sources */,
 				0DB514E1259C4D55008248A2 /* AppDelegate.swift in Sources */,
 				0DB514F7259C5406008248A2 /* NotificationCenter.swift in Sources */,
 				0DB514B5259C48D9008248A2 /* ContentView.swift in Sources */,
 				0DC72C75259FDC360096A0B8 /* TaskManager.swift in Sources */,
 				0DB514B3259C48D9008248A2 /* GeoTriggerApp.swift in Sources */,
+				0DB68C9D25AAF4750075456A /* ChartUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

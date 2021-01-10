@@ -16,8 +16,18 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Test")
+            VStack{
+                ChartUIView()
+                Spacer()
+                HStack {
+                    GeoRegionCardView(hexColor: "#F6F6F6")
+                    GeoRegionCardView(hexColor: "#F6F6F6")
+                }
+                HStack {
+                    GeoRegionCardView(hexColor: "#F6F6F6")
+                    GeoRegionCardView(hexColor: "#F6F6F6")
+                }
+                Spacer()
             }
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
