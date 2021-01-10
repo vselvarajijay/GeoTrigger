@@ -10,14 +10,30 @@ import SwiftUI
 struct GeoRegionCardView: View {
     
     var hexColor : String
-    init(hexColor: String) {
+    var statusColor : String
+    init(hexColor: String, statusColor: String) {
         self.hexColor = hexColor
+        self.statusColor = statusColor
     }
     
     var body: some View {
         RoundedRectangle(cornerRadius: 20, style: .continuous)
             .fill(Color.init(hexStringToUIColor(hex: self.hexColor)))
-            .frame(width: 100, height: 100)
+            .frame(width: 150, height: 150)
+            .overlay(
+                VStack(alignment: .leading) {
+                    HStack {
+                        Spacer()
+                    }
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Color.init(hexStringToUIColor(hex: self.statusColor)))
+                        .frame(width: 40, height: 15)
+                    Text("Home")
+                    Text("40 hrs")
+                    Spacer()
+                }.padding()
+            )
+        
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -45,6 +61,6 @@ struct GeoRegionCardView: View {
 
 struct GeoRegionCardView_Previews: PreviewProvider {
     static var previews: some View {
-        GeoRegionCardView(hexColor: "000000")
+        GeoRegionCardView(hexColor: "#F6F6F6", statusColor: "#FFFFFF")
     }
 }

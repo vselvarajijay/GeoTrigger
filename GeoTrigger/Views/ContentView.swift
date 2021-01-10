@@ -20,12 +20,12 @@ struct ContentView: View {
                 ChartUIView()
                 Spacer()
                 HStack {
-                    GeoRegionCardView(hexColor: "#F6F6F6")
-                    GeoRegionCardView(hexColor: "#F6F6F6")
+                    GeoRegionCardView(hexColor: "#F6F6F6", statusColor: "#4FFF60")
+                    GeoRegionCardView(hexColor: "#F6F6F6", statusColor: "#EA1DBD")
                 }
                 HStack {
-                    GeoRegionCardView(hexColor: "#F6F6F6")
-                    GeoRegionCardView(hexColor: "#F6F6F6")
+                    GeoRegionCardView(hexColor: "#F6F6F6", statusColor: "#2C7FFB")
+                    GeoRegionCardView(hexColor: "#F6F6F6", statusColor: "#FFAA28")
                 }
                 Spacer()
             }
