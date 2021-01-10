@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0D07D8EE25A43B3400CC91B4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0D07D8ED25A43B3400CC91B4 /* README.md */; };
-		0D07D8F425A44A3600CC91B4 /* GitHub-Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07D8F325A44A3600CC91B4 /* GitHub-Banner.png */; };
 		0D488C0125A00E110016D2ED /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D488C0025A00E110016D2ED /* AppConfig.swift */; };
 		0D509F7B25A58FA200814632 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D509F7A25A58FA200814632 /* LocationManager.swift */; };
 		0D509F8025A591F100814632 /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D509F7F25A591F100814632 /* LocationManagerTests.swift */; };
@@ -47,7 +46,6 @@
 /* Begin PBXFileReference section */
 		01195D2507AEDB1D5804B7DF /* Pods-GeoTriggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoTriggerTests.debug.xcconfig"; path = "Target Support Files/Pods-GeoTriggerTests/Pods-GeoTriggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0D07D8ED25A43B3400CC91B4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		0D07D8F325A44A3600CC91B4 /* GitHub-Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Banner.png"; sourceTree = "<group>"; };
 		0D488C0025A00E110016D2ED /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		0D509F7A25A58FA200814632 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0D509F7F25A591F100814632 /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
@@ -113,14 +111,6 @@
 			path = Configs;
 			sourceTree = "<group>";
 		};
-		0D07D8F225A4435700CC91B4 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				0D07D8F325A44A3600CC91B4 /* GitHub-Banner.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		0DB514A6259C48D9008248A2 = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +136,6 @@
 		0DB514B1259C48D9008248A2 /* GeoTrigger */ = {
 			isa = PBXGroup;
 			children = (
-				0D07D8F225A4435700CC91B4 /* Images */,
 				0D07D8ED25A43B3400CC91B4 /* README.md */,
 				0D07D8EC25A4399D00CC91B4 /* Configs */,
 				0DC72C6A259FDB420096A0B8 /* Services */,
@@ -337,7 +326,6 @@
 			files = (
 				0D07D8EE25A43B3400CC91B4 /* README.md in Resources */,
 				0DB514BA259C48DB008248A2 /* Preview Assets.xcassets in Resources */,
-				0D07D8F425A44A3600CC91B4 /* GitHub-Banner.png in Resources */,
 				0DB514B7259C48DB008248A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
