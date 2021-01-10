@@ -128,7 +128,7 @@ extension LocationManager: CLLocationManagerDelegate {
             print(">>>>>>>>>>> Getting closer to home")
         } else {
             print(">>>>>>>>>>> Getting further to home")
-            self.taskManager?.runTask()
+            // self.taskManager?.runTask()
         }
         
         self.lastDistanceFromHome = distanceInMeters

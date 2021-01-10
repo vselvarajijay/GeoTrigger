@@ -11,22 +11,99 @@ import UserNotifications
 
 
 struct ContentView: View {
-    let appConfig = AppConfig.config    
-    @ObservedObject var locationManager = LocationManager.shared
-    @ObservedObject var notificationCenter = NotificationCenter.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     
     var body: some View {
         NavigationView {
-            NavigationLink(destination: Text("Second View")) {
-                Text("Hello, World!")
+            VStack {
+                Text("Test")
             }
-            .navigationBarTitle("Navigation", displayMode: .inline)
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavToolbarItem()
+                }
+            }
         }
+
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
         
-        
-        /*
+}
+
+
+struct NavToolbarItem: View {
+    var body: some View {
+        VStack {
+            HStack {
+                HStack(spacing: -5) {
+                    Circle().fill(Color.init(hexStringToUIColor(hex: "#EC4C4C")))
+                        .frame(width: 15.0, height: 15.0)
+                    Circle().fill(Color.init(hexStringToUIColor(hex: "#F28657")))
+                        .frame(width: 15.0, height: 15.0)
+                    Circle().fill(Color.init(hexStringToUIColor(hex: "#F2AF58")))
+                        .frame(width: 15.0, height: 15.0)
+                }
+                Text("LOCATION ANALYTICS").font(.custom("Helvetica Neue", size: 10)).fontWeight(.bold)
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}
+
+
+struct LocationDebuggingView: View {
+    
+    let appConfig = AppConfig.config
+    @ObservedObject var locationManager = LocationManager.shared
+    @ObservedObject var notificationCenter = NotificationCenter.shared
+    
+    var body: some View {
         VStack {
             
             if locationManager.enteredGeoFence {
@@ -65,15 +142,15 @@ struct ContentView: View {
             }
             
             Button(action: {
-                print("hello")                
+                print("hello")
             }) {
                 Text("Click me")
             }
             
-        }        
-       */
+        }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
