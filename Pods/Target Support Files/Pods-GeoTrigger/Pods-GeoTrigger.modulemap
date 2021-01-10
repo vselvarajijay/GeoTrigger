@@ -1,0 +1,6 @@
+framework module Pods_GeoTrigger {
+  umbrella header "Pods-GeoTrigger-umbrella.h"
+
+  export *
+  module * { export * }
+}

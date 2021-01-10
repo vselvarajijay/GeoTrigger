@@ -1,0 +1,6 @@
+framework module Pods_GeoTriggerTests {
+  umbrella header "Pods-GeoTriggerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
